@@ -1,0 +1,65 @@
+
+
+<nav  id = "nav" class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <% if current_user %>
+        <%=button_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% else %>
+    <a type="button" class=" btn btn-secondary rounded-pill" href=<%=new_user_registration_path%> >Sign Up</a>
+    <a type="button" class=" btn btn-secondary rounded-pill" href=<%=new_user_session_path%> >Sign in</a>
+    <%end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item nav-link">
+          <a class="nav-link active" aria-current="page" href=<%=pages_home_path%>>Home</a>
+        </li>
+        <li class="nav-item nav-link">
+          <a class="nav-link" href=<%=dogs_path%>>Dogs</a>
+        </li>
+
+        <% if current_user&.admin? %>
+        <li class="nav-item nav-link">
+          <a class="nav-link" href=<%=recipes_path%>>Recipes</a>
+        </li>
+        <%end%>
+
+        <li class="nav-item nav-link">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">About Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h1>Recipes</h1>
+
+
+<table>
+  <thead>
+    <tr >
+      <th class=" px-4">Title</th>
+      <th class=" px-4">Description</th>
+      <th class=" px-4">Ingredients</th>
+      <th class=" px-4">Directions</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+<% @recipes.each do |recipe| %>
+  <tr class="text-center">
+    <td><%= recipe.title %></td>
+    <td><%= recipe.description %></td>
+    <td><%= recipe.ingredients %></td>
+    <td><%= recipe.directions%></td>
+    <td ><%= button_to 'Show', recipe_path(:id => recipe.id), :method => :get, :class => "btn btn-warning btn-sm"%></td>
+<td><%= button_to 'Edit', edit_recipe_path(:id => recipe.id), :method => :get, :class => "btn btn-warning btn-sm" %></td>
+    <td><%= button_to 'Destroy', recipe_path(:id => recipe.id), :method => :delete, :class => "btn btn-warning btn-sm" %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>

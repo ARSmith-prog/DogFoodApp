@@ -1,0 +1,47 @@
+
+
+
+#nav{
+  /* background: rgb(201, 199, 226); */
+  background: rgb(191, 204, 148);
+  font-size: 1rem;
+}
+
+#bannerd{
+  /* background: rgb(201, 199, 226); */
+  background: rgb(197, 137, 232);
+  font-size: 1rem;
+}
+
+.nav-link {
+  color: black;
+}
+
+#dogtitle {
+  font-size: 2rem;
+  font-family: sans-serif;
+}
+
+
+#banner{
+    background: rgb(201, 199, 226);
+  /* background: rgb(147, 225, 245); */
+}
+
+
+#row {
+  flex: 1 1 0px;
+  border:2px solid black;
+  float:left;
+  margin: 10px;
+  padding: 5px;
+}
+
+#picCont {
+  flex: 1 1 0px;
+  border:5px solid rgb(238, 150, 75);
+  float:left;
+  margin: 10px;
+  padding: 5px;
+  background: rgb(250,240, 202);
+}
