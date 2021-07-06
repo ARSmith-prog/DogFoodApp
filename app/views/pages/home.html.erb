@@ -46,7 +46,7 @@
 
 <!-- start of banner -->
 
-<div id= "banner" style= "margin-top:55px; padding-top:55px;" class="container-fluid text-sm-center p-5 text-white "> <!-- bg-light is background color & p-5 is padding -->
+<div id= "banner" style= "margin-top:55px; padding-top:55px;" class="container-fluid text-sm-center p-5 text-white ">
 <h1 class="display-2">Welcome to ChowMeDown</h1>
 <p class="lead">Sign up and add your dog!</p>
 <p class="lead">Then get free dog food recipes!</p>
@@ -60,9 +60,10 @@
 
 
 <!-- start of container  -->
+<div id = "about" class= "py-4">
 <div class="container pt-4">
 
-  <div id ="about" class="row">
+  <div  class="row">
 
     <div class="col-lg order-lg-1">
       <h3 class="mb-4 text-center">About Chow Me Down</h3>
@@ -70,7 +71,7 @@
          eight years and decided to share my recipes with everyone willing to make it.</p>
     </div>
     <div class="col-lg order-lg-2">
-        <%= image_tag("img/am3.png", style: "text-center width:300px; height:auto")%>
+        <%= image_tag("img/logo.png", style: "text-center width:300px; height:auto")%>
     </div>
     <div class="col-lg order-lg-3">
       <h3 class="mb-4 text-center">The Reason</h3>
@@ -80,61 +81,56 @@
 
     </div>
   </div>
+   </div>
+   </div>
+
+
+<!-- end of conatiner -->
+<div id="banner">
+        <div id = "about" class= "container text-center ">
+              <h1 class="display-4 text-center "> Making homemade dog food recipes since 2013 </h1>
+
+          <%= image_tag("img/am3.png", class: "text-center my-4", style: "width:500px; height:auto;")%>
+       </div>
+       </div>
+
+       <div id = "about" class= "py-4">
+       <div class="container pt-4">
+
+         <div  class="row">
+
+           <div class="col-lg">
+             <p>Check us put on Instagram!</p>
+             <a class="navbar-brand" href=<%=pages_home_path%>> <%= image_tag("img/insta.png", style: "border-radius: 500px; width: 40px; height: 40px;")%>
+             </a>
+             <p>Check out our Youtube Channel!</p>
+             <a class="navbar-brand" href=<%=pages_home_path%>> <%= image_tag("img/insta.png", style: "border-radius: 500px; width: 40px; height: 40px;")%>
+             </a>
+
+           </div>
+           <div class="col-lg">
+
+             <h1 class="display-4 text-center "> Making homemade dog food recipes since 2013 </h1>
+
+         <%= image_tag("img/logo.png", class: "text-center my-4", style: "width:500px; height:auto;")%>
+      </div>
+           </div>
+         </div>
+          </div>
 
 
 
 
-    <h1 class="display-4 text-center my-5 text-muted"> Dog Food</h1>
-               <div class = "row">
-                    <div class="col-md-4">
-                      <div id = "picCont" class="card mb-3" style = "width:300px; height:auto">
-                        <%= image_tag("img/f1.jpg", class: "card-img-top")%>
-                    </div>
-                  </div>
-
-                    <div class="col-md-4">
-                      <div  id = "picCont" class="card mb-3" style = "width:300px; height:auto" >
-                        <%= image_tag("img/f3.jpg", class: "card-img-top")%>
-                    </div>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div id = "picCont" class="card mb-3" style = "width:300px; height:auto">
-                      <%= image_tag("img/f4.jpg", class: "card-img-top")%>
-                    </div>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div id = "picCont" class="card mb-3" style = "width:300px; height:auto">
-                        <%= image_tag("img/f7.jpg", class: "card-img-top")%>
-                    </div>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div id = "picCont" class="card mb-3" style = "width:300px; height:auto">
-                        <%= image_tag("img/f6.jpg", class: "card-img-top")%>
-                    </div>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div  id = "picCont" class="card mb-3" style = "width:300px; height:auto">
-                        <%= image_tag("img/f5.jpg", class: "card-img-top")%>
-                    </div>
-                    </div>
-                      </div>
-
-                      </div>
 
 
+<footer id = "footer" class=" conatiner mt-auto text-center" >
+<div id= "bannerd" style= " padding-top:55px;" class="container-fluid text-sm-center p-5 text-white ">
+<a type="button" class="btn btn-primary btn-lg"  href=<%=new_user_registration_path%> >Get Recipes!</a>
+</div>
 
-                    <div class=" conatiner my-4 text-center" >
-                    <div id= "banner" style= "margin-top:55px; padding-top:55px;" class="container-fluid text-sm-center p-5 text-white ">
-                    <a type="button" class="btn btn-primary btn-lg"  href=<%=new_user_registration_path%> >Get Recipes!</a>
-                    </div>
 
+<div  class= " py-4">
+<small>&copy; 2021 ChowMeDown | Alannah Smith David</small>
+</div>
 
-                        <div class= " my-4">
-                        <small>&copy; 2021 ChowMeDown | Alannah Smith David</small>
-                      </div>
-
-                      </div>
+</footer>

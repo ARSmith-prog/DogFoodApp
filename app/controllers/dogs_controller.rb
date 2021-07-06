@@ -7,7 +7,7 @@ class DogsController < ApplicationController
     @dogs = Dog.all
   end
 
-  # GET /dogs/1 or /dogs/1.json
+
   def show
   end
 
