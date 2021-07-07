@@ -1,37 +1,47 @@
-<%= form_with(model: recipe, local: true) do |form| %>
-  <% if recipe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+<div id="banner">
 
-      <ul>
-      <% recipe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <form id="form" class="row gy-2 gx-3 align-items-center">
+    <div class="col-auto">
+
+      <%= form_with(model: recipe, local: true) do |form| %>
+      <% if recipe.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(recipe.errors.count, "error") %>
+            prohibited this recipe from being saved:</h2>
+
+          <ul>
+            <% recipe.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
+
+      <%= form.label :title %>
+      <%= form.text_field :title %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+    <div class="col-auto">
+      <%= form.label :description %>
+      <%= form.text_area :description, style: "width:400px;"%>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+    <div class="col-auto">
+      <%= form.label :ingredients %>
+      <%= form.text_area :ingredients, style: "width:400px;" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :ingredients %>
-    <%= form.text_area :ingredients %>
-  </div>
+    <div class="col-auto">
+      <%= form.label :directions %>
+      <%= form.text_area :directions, style: "width:400px;" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :directions %>
-    <%= form.text_area :directions %>
-  </div>
+    <div class="col-auto">
 
-  <div class="actions">
-    <%= form.submit %>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</form>
+</div>

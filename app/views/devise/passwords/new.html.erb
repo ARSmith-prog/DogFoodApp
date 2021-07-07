@@ -18,8 +18,8 @@
 
           <% else %>
 
-          <a type="button" class=" btn btn-outline-dark rounded-pill" href=<%=new_user_registration_path%> >Sign Up</a>
-          <a type="button" class=" btn btn-outline-dark rounded-pill" href=<%=new_user_session_path%> >Sign in</a>
+          <a type="button" class=" btn btn-outline-dark btn-light  rounded-pill" href=<%=new_user_registration_path%> >Sign Up</a>
+          <a type="button" class=" btn btn-outline-dark btn-light rounded-pill" href=<%=new_user_session_path%> >Sign in</a>
 
           <%end %>
 
@@ -51,7 +51,7 @@
   </nav>
   <!-- end of nav bar -->
 
-<div id = "banner" class= "text-center" style= "margin-top:55px; padding-top:55px;">
+<div id = "bannerp" class= "text-center" style= "margin-top:55px; padding-top:55px;">
 <h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -62,7 +62,7 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="actions">
+  <div class="actions py-4">
     <%= f.submit "Send me reset password instructions" %>
   </div>
 <% end %>

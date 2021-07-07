@@ -1,32 +1,109 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="
+" dir=" ltr"="ltr"">
+  <head>
+    <meta charset="utf-8">
+    <title>LogIn</title>
+  </head>
+  <nav id="nav" class="navbar navbar-expand-lg fixed-top ">
+    <div class="container-fluid">
 
-<p>
-  <strong>Title:</strong>
-  <%= @recipe.title%>
-</p>
+      <div class="navbar-brand order-1 mr-0 ">
 
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description%>
-</p>
+        <% if current_user %>
 
-<p>
-  <strong>Ingredients:</strong>
-  <%= @recipe.ingredients%>
-</p>
-<p>
-  <strong>Directions:</strong>
-  <%= @recipe.directions%>
-</p>
+          <%=button_to 'Logout', destroy_user_session_path, method: :delete %>
 
-<div id="comments">
-  <h1>Comments</h1>
+        <% else %>
 
-  <%=  render @recipe.comments%>
-  <h2> Add a Comment</h2>
-  <%= render partial: "comments/form", locals: {comment: @recipe.comments.new}%>
+          <a type="button" class=" btn btn-outline-dark rounded-pill" href=<%=new_user_registration_path%>>Sign Up</a>
+          <a type="button" class=" btn btn-outline-dark rounded-pill" href=<%=new_user_session_path%>>Sign in</a>
+
+        <%end %>
+      </div>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item nav-link">
+            <a class="navbar-brand" href=<%=pages_home_path%>>
+              <%= image_tag("img/logo.png", style: "border-radius: 500px; width: 80px; height: 40px;")%>
+            </a>
+          </li>
+          <li class="nav-item nav-link">
+            <a class="nav-link active" aria-current="page" href=<%=pages_home_path%>>Home</a>
+          </li>
+          <li class="nav-item nav-link">
+            <a class="nav-link" href=<%=dogs_path%>>Dogs</a>
+          </li>
+
+          <% if current_user&.admin? %>
+            <li class="nav-item nav-link">
+              <a class="nav-link" href=<%=recipes_path%>>Recipes</a>
+            </li>
+          <%end%>
+          <li class="nav-item nav-link">
+            <a class="nav-item nav-link" href="#about">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- end of nav bar -->
+
+  <div id="banner" style="margin-top:55px; padding-top:55px;" class="conatiner pt-4">
+
+    <p id="notice"><%= notice %></p>
+
+    <div id="recipeContainer" class="row">
+      <div class="col">
+        <div style="background: rgb(223,243,227);" class="py-4 px-4">
+          <h1>
+            <%= @recipe.title%>
+          </h1>
+
+          <p style="font-size: 1.5rem;">
+            <%= @recipe.description%>
+          </p>
+
+          <p>
+            <strong>Ingredients:</strong>
+            <%= @recipe.ingredients%>
+          </p>
+          <p>
+            <strong>Directions:</strong>
+            <%= @recipe.directions%>
+          </p>
+
+        </div>
+      </div>
+
+      <div class="col">
+        <div style="background: rgb(223,243,227);" class="py-4 px-4">
+
+          <div id="comments">
+            <h1 style="margin:10px;">Comments</h1>
+            <%= render @recipe.comments%>
+            <h3 style="margin-top:40px;">
+              Add a Comment</h3>
+            <%= render partial: "comments/form", locals: {comment: @recipe.comments.new}%>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= link_to 'Edit', edit_recipe_path(@recipe), :class => "btn btn-lg", id: "button" %>
+    <%= link_to 'Back', recipes_path, :class => "btn btn-lg", id: "button" %>
+
   </div>
 
-
-<%= link_to 'Edit', edit_recipe_path(@recipe), :class => "btn btn-primary btn-sm" %>
-<%= link_to 'Back', recipes_path, :class => "btn btn-primary btn-sm" %>
+  <div id="footer2" class="text-center pt-3">
+    <div >
+      <small>&copy; 2021 ChowMeDown | Alannah Smith David</small>
+    </div>
+  </div>
+</html>

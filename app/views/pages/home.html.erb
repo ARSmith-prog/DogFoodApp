@@ -1,21 +1,19 @@
-
-<nav id = "nav" class="navbar navbar-expand-lg fixed-top ">
+<nav id="nav" class="navbar navbar-expand-lg fixed-top ">
   <div class="container-fluid">
 
-    <div class = "navbar-brand order-1 mr-0 ">
+    <div class="navbar-brand order-1 mr-0 ">
 
-    <% if current_user %>
+      <% if current_user %>
 
-    <%=button_to 'Logout', destroy_user_session_path, method: :delete %>
+        <%=button_to 'Logout', destroy_user_session_path, method: :delete %>
 
-    <% else %>
+      <% else %>
 
-    <a type="button" class=" btn btn-outline-dark rounded-pill" href=<%=new_user_registration_path%> >Sign Up</a>
-    <a type="button" class=" btn btn-outline-dark rounded-pill" href=<%=new_user_session_path%> >Sign in</a>
+        <a type="button" class=" btn btn-outline-dark btn-light rounded-pill" href=<%=new_user_registration_path%>>Sign Up</a>
+        <a type="button" class=" btn btn-outline-dark btn-light rounded-pill" href=<%=new_user_session_path%>>Sign in</a>
 
-    <%end %>
+      <%end %>
     </div>
-
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -29,14 +27,11 @@
           <a class="nav-link" href=<%=dogs_path%>>Dogs</a>
         </li>
 
-        <% if current_user&.admin? %>
-        <li class="nav-item nav-link">
-          <a class="nav-link" href=<%=recipes_path%>>Recipes</a>
-        </li>
+        <% if current_user %>
+          <li class="nav-item nav-link">
+            <a class="nav-link" href=<%=recipes_path%>>Recipes</a>
+          </li>
         <%end%>
-        <li class="nav-item nav-link">
-          <a class="nav-item nav-link" href="#about">About</a>
-        </li>
       </ul>
     </div>
   </div>
@@ -46,91 +41,90 @@
 
 <!-- start of banner -->
 
-<div id= "banner" style= "margin-top:55px; padding-top:55px;" class="container-fluid text-sm-center p-5 text-white ">
-<h1 class="display-2">Welcome to ChowMeDown</h1>
-<p class="lead">Sign up and add your dog!</p>
-<p class="lead">Then get free dog food recipes!</p>
+<div id="bannerw" style="margin-top:55px; padding-top:55px;" class="container-fluid text-sm-center p-5 ">
 
-<div class="btn-group mt-2" role="group" aria-label="Callout Buttons">
-<a type="button" class="btn btn-primary btn-lg" href=<%=new_user_registration_path%> >Sign Up!</a>
-</div>
+  <% if current_user %>
+    <h1 id="heading" class="display-2">Welcome Back!
+    </h1>
+  <%else%>
+    <h1 id="heading" class="display-2">Homemade Dog Food</h1>
+    <p class="lead">Sign up to add your dog!</p>
+    <p class="lead">Then get free dog food recipes!</p>
+
+    <div class="btn-group mt-2" role="group" aria-label="Callout Buttons">
+      <a type="button" class="btn btn-primary btn-lg" href=<%=new_user_registration_path%>>Sign Up!</a>
+    </div>
+  <%end%>
 </div>
 
 <!-- end of jumbotron -->
 
+<!-- start of container -->
+<div id="about" class="py-4">
+  <div class="container pt-4">
 
-<!-- start of container  -->
-<div id = "about" class= "py-4">
-<div class="container pt-4">
+    <div class="row py-4" style="background: white;">
 
-  <div  class="row">
-
-    <div class="col-lg order-lg-1">
-      <h3 class="mb-4 text-center">About Chow Me Down</h3>
-      <p>Hello! My name is Alannah Smith. I feel Dog food is very over looked. I have started making my own dog food around
-         eight years and decided to share my recipes with everyone willing to make it.</p>
-    </div>
-    <div class="col-lg order-lg-2">
+      <div class="col-lg order-lg-1 text-center">
+        <h3 class="mb-4 text-center">About Chow Me Down</h3>
+        <p>Hello, my name is Alannah. In 2013 my one dog was having issues with allergies, along with a heart murmur, after going to the vet several times for the same eye allergy I looked into making homemade dog food to see if it would help.
+        </p>
+        <p>After only two weeks I saw a huge difference, no more allergy outbreaks! After that I was hooked. Then a couple years later I got another dog who has a liver condition where she gets UTI's and stones often.</p>
+        <p>These recipes have not only saved me time and money from not having to go to the vet as much and not buy that expensive prescription food but it has made my dogs so happy. I hope these recipes can do that same for your dogs!
+        </p>
+      </div>
+      <div class="col-lg order-lg-2">
         <%= image_tag("img/logo.png", style: "text-center width:300px; height:auto")%>
-    </div>
-    <div class="col-lg order-lg-3">
-      <h3 class="mb-4 text-center">The Reason</h3>
-      <p>Our expert speaker lineup was just announced, so don't wait too long before grabbing your tickets!</p>
-      <p>Want to meet the international JavaScript community and share skills with some of the world's top experts, hackers, and makers? Be the first to know what to expect for the future of JavaScript.</p>
-      <p>Full Stack Conf is committed to being inclusive and welcoming for everyone. We look forward to another intensive day of learning and sharing.</p>
-
+      </div>
+      <div class="col-lg order-lg-3 text-center">
+        <h3 class="mb-4 text-center">The Reason</h3>
+        <p>I feel Dog food is very over looked. I have started making my own dog food around eight years ago and decided to share my recipes with everyone willing to make it.</p>
+        <p>
+          This has not only brought me closer to my dog but its improved her overall health</p>
+        <p>Its so complicated to find a good dog food brand and can be very expensive. This is a great alternative for someone looking to feed their dog/s good health meals.</p>
+      </div>
     </div>
   </div>
-   </div>
-   </div>
 
+  <div class="py-4">
+    <div class="container" style="background: rgb(209,99,216);">
 
-<!-- end of conatiner -->
-<div id="banner">
-        <div id = "about" class= "container text-center ">
-              <h1 class="display-4 text-center "> Making homemade dog food recipes since 2013 </h1>
+      <div class="row" style="background: white; margin-left:150px; margin-right:150px;">
 
-          <%= image_tag("img/am3.png", class: "text-center my-4", style: "width:500px; height:auto;")%>
-       </div>
-       </div>
+        <div id="about1" class="col-lg text-center ">
+          <h1 class=" text-center py-4 fst-italic">
+            Making homemade dog food since 2013
+          </h1>
+          <h3 class=" text-center fst-italic">Click Icon to check us out on Instagram!</h3>
+          <a class="navbar-brand" href="https://www.instagram.com/chowmedown_/" target="_blank">
+            <%= image_tag("img/insta.png", style: "border-radius: 500px; width: 70px; height: 60px;")%>
+          </a>
+          <h3 class="text-center fst-italic">Click icon to check out our Youtube Channel!</h3>
+          <a class="navbar-brand" href="https://www.youtube.com/channel/UCbdcu5N_XhfvLXqMyvid7Vw" target="_blank">
+            <%= image_tag("img/yt.png", style: "border-radius: 500px; width: 70px; height: 60px;")%>
+          </a>
 
-       <div id = "about" class= "py-4">
-       <div class="container pt-4">
+        </div>
+        <div class="col-lg text-center" style="padding-top:30px;">
 
-         <div  class="row">
-
-           <div class="col-lg">
-             <p>Check us put on Instagram!</p>
-             <a class="navbar-brand" href=<%=pages_home_path%>> <%= image_tag("img/insta.png", style: "border-radius: 500px; width: 40px; height: 40px;")%>
-             </a>
-             <p>Check out our Youtube Channel!</p>
-             <a class="navbar-brand" href=<%=pages_home_path%>> <%= image_tag("img/insta.png", style: "border-radius: 500px; width: 40px; height: 40px;")%>
-             </a>
-
-           </div>
-           <div class="col-lg">
-
-             <h1 class="display-4 text-center "> Making homemade dog food recipes since 2013 </h1>
-
-         <%= image_tag("img/logo.png", class: "text-center my-4", style: "width:500px; height:auto;")%>
+          <%= image_tag("img/am3.png", class: "text-center my-4", style: "width:300px; height:auto; border-radius: 30px;")%>
+        </div>
       </div>
-           </div>
-         </div>
-          </div>
-
-
-
-
-
-
-<footer id = "footer" class=" conatiner mt-auto text-center" >
-<div id= "bannerd" style= " padding-top:55px;" class="container-fluid text-sm-center p-5 text-white ">
-<a type="button" class="btn btn-primary btn-lg"  href=<%=new_user_registration_path%> >Get Recipes!</a>
+    </div>
+  </div>
 </div>
 
+<footer id="footer" class=" conatiner mt-auto text-center">
+  <div id="bannerw" style=" padding-top:55px;" class="container-fluid text-sm-center p-5 text-white ">
+    <% if current_user%>
+      <a type="button" class="btn btn-primary btn-lg" href=<%=recipes_path%>>Go to Recipes!</a>
+    <% else %>
+      <a type="button" class="btn btn-primary btn-lg" href=<%=new_user_registration_path%>>Get Recipes!</a>
+    <%end%>
+  </div>
 
-<div  class= " py-4">
-<small>&copy; 2021 ChowMeDown | Alannah Smith David</small>
-</div>
+  <div class=" py-4">
+    <small>&copy; 2021 ChowMeDown | Alannah Smith David</small>
+  </div>
 
 </footer>

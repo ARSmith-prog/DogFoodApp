@@ -18,8 +18,8 @@
 
           <% else %>
 
-          <a type="button" class=" btn btn-outline-dark rounded-pill" href=<%=new_user_registration_path%> >Sign Up</a>
-          <a type="button" class=" btn btn-outline-dark rounded-pill" href=<%=new_user_session_path%> >Sign in</a>
+          <a type="button" class=" btn btn-outline-dark btn-light  rounded-pill" href=<%=new_user_registration_path%> >Sign Up</a>
+          <a type="button" class=" btn btn-outline-dark btn-light rounded-pill" href=<%=new_user_session_path%> >Sign in</a>
 
           <%end %>
 
@@ -51,7 +51,7 @@
   </nav>
   <!-- end of nav bar -->
 
-<div id = "banner" class= "text-center" style= "margin-top:55px; padding-top:55px;">
+<div id = "bannerp" class= "text-center" style= "margin-top:55px; padding-top:55px;">
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -66,7 +66,7 @@
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
+    <div class="field py-4">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>

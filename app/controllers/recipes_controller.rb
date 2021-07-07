@@ -1,57 +1,57 @@
 class RecipesController < ApplicationController
       before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   def index
-      @recipes = Recipe.all
-
-    # render json: RecipeSerializer.new(recipes)
-
-
+      # @recipes = Recipe.all
+      @recipes =Recipe.search(params[:search])
   end
 
-
-
 def show
-
-  # recipes = Ingredient.find_by(name: params[:ingredient_name]).recipes
-  #
-  #  render json: RecipeSerializer.new(recipes.sample)
 end
+
+def new
+    @recipe = Recipe.new
+end
+
+
+def edit
+end
+
 
 
 def create
 @recipe = Recipe.new(recipe_params)
 
-# respond_to do |format|
-#   if @recipe.save
-#     format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
-#     format.json { render :show, status: :created, location: @recipe }
-#   else
-#     format.html { render :new }
-#     format.json { render json: @recipe.errors, status: :unprocessable_entity }
-#   end
-# end
+respond_to do |format|
+  if @recipe.save
+    format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
+    format.json { render :show, status: :created, location: @recipe }
+  else
+    format.html { render :new }
+    format.json { render json: @recipe.errors, status: :unprocessable_entity }
+  end
+end
 end
 
-# def update
-# respond_to do |format|
-#   if @recipe.update(recipe_params)
-#     format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
-#     format.json { render :show, status: :ok, location: @recipe }
-#   else
-#     format.html { render :edit }
-#     format.json { render json: @recipe.errors, status: :unprocessable_entity }
-#   end
-# end
-# end
-#
-#
-# def destroy
-#   @recipe.destroy
-#   respond_to do |format|
-#     format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
-#     format.json { head :no_content }
-#   end
-# end
+def update
+respond_to do |format|
+  if @recipe.update(recipe_params)
+    format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
+    format.json { render :show, status: :ok, location: @recipe }
+  else
+    format.html { render :edit }
+    format.json { render json: @recipe.errors, status: :unprocessable_entity }
+  end
+end
+end
+
+
+def destroy
+  @recipe.destroy
+  respond_to do |format|
+    format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+    format.json { head :no_content }
+  end
+end
 
 
 private
@@ -62,6 +62,6 @@ end
 
 # Never trust parameters from the scary internet, only allow the white list through.
 def recipe_params
-  params.require(:recipe).permit(:title, :description, :ingredients, :directions)
+  params.require(:recipe).permit(:title, :description, :ingredients, :directions, :search)
 end
 end
