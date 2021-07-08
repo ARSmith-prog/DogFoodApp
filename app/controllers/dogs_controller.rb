@@ -18,6 +18,7 @@ class DogsController < ApplicationController
 
   # GET /dogs/1/edit
   def edit
+
   end
 
   # POST /dogs or /dogs.json

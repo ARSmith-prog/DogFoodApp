@@ -1,7 +1,6 @@
-
 <div id = "banner" >
 
-  <form id = "form" class="row gy-2 gx-3 align-items-center">
+  <div id = "form" class="row gy-2 gx-3 align-items-center">
     <div class="col-auto">
 
 <%= form_with(model: dog) do |form| %>
@@ -17,35 +16,37 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+
     <%= form.label :title %>
     <%= form.text_field :title%>
   </div>
+  </div>
+
+  <div class="field">
 
     <div class="col-auto">
     <%= form.label :age %>
     <%= form.number_field :age %>
   </div>
+  </div>
 
+  <div class="field">
+  <div class="col-auto">
 
-<div class="col-auto">
-
-  <div >
     <% if dog.image.attached? %>
-      <%= image_tag dog.image, style: "width:auto; height:300px" %>
+      <%= image_tag dog.image, style: "width: 375px; height: 400px;"%>
     <%end %>
-
     <%= form.label :image %>
     <%= form.file_field :image %>
   </div>
+  </div>
 
-    </div>
-
-
-  <div class="col-auto">
   <div class="actions">
     <%= form.submit%>
   </div>
 <% end %>
-</div>
-</form>
+
+  </div>
 </div>
