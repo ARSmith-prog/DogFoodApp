@@ -45,9 +45,6 @@
             </li>
           <%end%>
 
-          <li class="nav-item nav-link">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">About Us</a>
-          </li>
         </ul>
       </div>
     </div>
@@ -58,7 +55,7 @@
 
   <div id="bannerp" class="text-center my-4">
 
-    <div class="rounded mx-auto d-block" style="margin-top:55px; padding-top:55px; width:400px; height:auto">
+    <div class="rounded mx-auto d-block" style="margin-top:55px; padding-top:55px; width:400px;">
       <% if @dog.image.attached? %>
         <%= image_tag(@dog.image, style: 'width:100%')%>
       <% end %>

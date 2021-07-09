@@ -67,6 +67,15 @@ html {
   margin: 10px;
 }
 
+#formComments {
+  width: 700px;
+  padding: 15px;
+  background: rgb(223, 243, 227);
+  border: 2px solid black;
+  display: inline-block;
+  margin: 10px;
+}
+
 #picCont {
   display: inline-grid;
   border-radius: 10px;
@@ -83,13 +92,30 @@ html {
 
 #recipes {
   display: inline-grid;
+  border: 5px solid grey;
+  background: white;
   border-radius: 10px;
   width: 400px;
   height: 350px;
   padding: 5px;
   margin: 10px;
-  border: 5px solid grey;
+
+
 }
+
+
+/* #sidebyside {
+  display: inline-block;
+
+} */
+
+/* #outsidecont {
+  border-radius: 10px;
+  width: 400px;
+  height: 350px;
+  padding: 5px;
+  margin: 10px;
+} */
 
 #recipeContainer {
   background: white;
@@ -102,6 +128,7 @@ html {
 
 #footer {
   background: rgb(56, 209, 64);
+  padding:5px;
 }
 
 #footer2 {

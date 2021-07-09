@@ -44,9 +44,6 @@
               <a class="nav-link" href=<%=recipes_path%>>Recipes</a>
             </li>
           <%end%>
-          <li class="nav-item nav-link">
-            <a class="nav-item nav-link" href="#about">About</a>
-          </li>
         </ul>
       </div>
     </div>
@@ -54,8 +51,8 @@
 
   <!-- end of nav bar -->
 
-  <div id="banner" style="margin-top:55px; padding-top:55px;" class="conatiner pt-4">
-
+  <div id="bannerp" style="margin-top:55px; padding-top:55px; padding-bottom: 70px;" class="conatiner pt-4">
+      <h1 id="heading" class="display-2"><%= @recipe.title%>  Recipe</h1>
     <p id="notice"><%= notice %></p>
 
     <div id="recipeContainer" class="row">
@@ -84,24 +81,23 @@
       <div class="col">
         <div style="background: rgb(223,243,227);" class="py-4 px-4">
 
-          <div id="comments">
+
             <h1 style="margin:10px;">Comments</h1>
             <%= render @recipe.comments%>
             <h3 style="margin-top:40px;">
               Add a Comment</h3>
             <%= render partial: "comments/form", locals: {comment: @recipe.comments.new}%>
-
-          </div>
         </div>
       </div>
     </div>
 
     <%= link_to 'Edit', edit_recipe_path(@recipe), :class => "btn btn-lg", id: "button" %>
+
     <%= link_to 'Back', recipes_path, :class => "btn btn-lg", id: "button" %>
 
   </div>
 
-  <div id="footer2" class="text-center pt-3">
+  <div id="footer" class="text-center pt-3">
     <div >
       <small>&copy; 2021 ChowMeDown | Alannah Smith David</small>
     </div>

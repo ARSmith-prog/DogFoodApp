@@ -52,26 +52,26 @@
 <!-- start of page container -->
 
 
-<div id = "banner" class= "text-center" style= "margin-top:55px; padding-top:55px;">
+<div id = "bannerp" class= "text-center" style= "margin-top:55px; padding-top:55px;">
 <h1>Edit Dog</h1>
 
 
 <%= render 'form', dog: @dog, style: "height: 500px;" %>
 
-<div id = "banner" style = "padding: 10px;">
+<div id = "bannerp" style = "padding: 20px;">
 
 
 
-<%= link_to 'Show', @dog, id: "button",  class: "btn text-decoration-none" %> 
-<%= link_to 'Back', dogs_path, id: "button",  class: "btn text-decoration-none" %>
+<%= link_to 'Show', @dog, id: "button",  class: "btn my-4" %>
+<%= link_to 'Back', dogs_path, id: "button",  class: "btn my-4" %>
 
-</div>
 </div>
 
 
 <div id= "footer2" class="text-center pt-3" >
     <div >
     <small>&copy; 2021 ChowMeDown | Alannah Smith David</small>
+  </div>
   </div>
   </div>
 </html>
