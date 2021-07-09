@@ -52,14 +52,18 @@
   <!-- end of nav bar -->
 
   <div id="bannerw" style="margin-top:55px; padding-top:55px;" class="container-fluid text-center p-5 ">
-    <h1 id="heading" class="display-2" >Recipes</h1>
+    <h1 id="heading" class="display-2">Recipes</h1>
 
-    <h4 class="pt-4">Search for a recipe:</h4>
+    <h4 class="pt-4">Search for a specific ingredient:</h4>
 
-    <%= form_tag(recipes_path, method: :get) do %>
-    <%= text_field_tag(:search, params[:search]) %>
-    <%= submit_tag ("Search") %>
-  <% end %>
+
+<!-- search form -->
+    <%= form_for "", url: recipes_path, role: "search", method: :get do %>
+    <%= text_field_tag :search, @search_term, placeholder: "e.g.chicken" %>
+  <%end%>
+
+<!-- end search from -->
+
 </div>
 <!-- end of header -->
 
@@ -86,11 +90,11 @@
       <% end %>
     </tbody>
   </table>
- </div>
+</div>
 
 <div id="footer" class="text-center py-3">
   <div>
     <small>&copy; 2021 ChowMeDown | Alannah Smith David</small>
-   </div>
- </div>
+  </div>
+</div>
 </html>
