@@ -1,8 +1,16 @@
 class RecipesController < ApplicationController
       before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   def index
-      # @recipes = Recipe.all
-      @recipes =Recipe.search(params[:search])
+      @recipes = Recipe.all
+      # @recipes =Recipe.search(params[:search])
+
+      if params[:search]
+        @search_term = params[:search]
+        @recipes = @recipes.search_by(@search_term)
+      end
+
+      # @q = Recipe.ransack(params[:q])
+      # @recipes = @q.result(distinct: true)
   end
 
 def show
@@ -62,6 +70,6 @@ end
 
 # Never trust parameters from the scary internet, only allow the white list through.
 def recipe_params
-  params.require(:recipe).permit(:title, :description, :ingredients, :directions, :search)
+  params.require(:recipe).permit(:title, :description, :ingredients, :directions)
 end
 end
