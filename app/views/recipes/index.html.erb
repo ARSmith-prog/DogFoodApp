@@ -53,16 +53,17 @@
 
   <div id="bannerw" style="margin-top:55px; padding-top:55px;" class="container-fluid text-center p-5 ">
     <h1 id="heading" class="display-2">Recipes</h1>
+    <h4> ChowMeDown exclusive recipes</h4>
+    <p>Find the best recipes for your dog</p>
 
-    <h4 class="pt-4">Search for a specific ingredient:</h4>
+    <p class="pt-4">Search for a specific ingredient:</p>
 
-
-<!-- search form -->
+    <!-- search form -->
     <%= form_for "", url: recipes_path, role: "search", method: :get do %>
     <%= text_field_tag :search, @search_term, placeholder: "e.g.chicken" %>
   <%end%>
 
-<!-- end search from -->
+  <!-- end search from -->
 
 </div>
 <!-- end of header -->
@@ -74,10 +75,14 @@
       <% @recipes.each do |recipe| %>
 
         <tr id="recipes">
-          <td id="title"><%= recipe.title %></td>
-          <td ><%= recipe.description %></td>
 
-          <td id="sidebyside"><%= button_to 'Show', recipe_path(:id => recipe.id), :method => :get, :class => "btn btn-primary btn-sm"%></td>
+          <td style="width:300px; height:207px;" class="mx-auto d-block">
+            <%= image_tag("img/logo.png", style:"width:100%; height: 210px;")%>
+          </td>
+          <td id="title" class="fst-italic"><%= recipe.title %></td>
+          <td class="fst-italic"><%= recipe.description %></td>
+
+          <td id="sidebyside"><%= button_to 'View Recipe', recipe_path(:id => recipe.id), :method => :get, :class => "btn btn-primary btn-sm"%></td>
 
           <% if current_user&.admin? %>
             <td id="sidebyside"><%= button_to 'Edit', edit_recipe_path(:id => recipe.id), :method => :get, :class => "btn btn-primary btn-sm" %></td>

@@ -9,12 +9,24 @@ class DogsController < ApplicationController
 
 
   def show
+    # @user = User.find_by_id(@dog.user_id)
+    # @previous_dog = @dog.previous
+    # @next_dog = @dog.next
+
+    @current_dog = Dog.find(params[:id])
+@prev = @current_dog.previous
+@next = @current_dog.next
+
+respond_to do |format|
+  format.html
+end
   end
 
   # GET /dogs/new
   def new
     @dog = Dog.new
   end
+
 
   # GET /dogs/1/edit
   def edit

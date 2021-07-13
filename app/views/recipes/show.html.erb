@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="
-" dir=" ltr"="ltr"">
+" dir=" ltr"=" ltr""="ltr""">
   <head>
     <meta charset="utf-8">
     <title>LogIn</title>
@@ -52,7 +52,8 @@
   <!-- end of nav bar -->
 
   <div id="bannerp" style="margin-top:55px; padding-top:55px; padding-bottom: 70px;" class="conatiner pt-4">
-      <h1 id="heading" class="display-2"><%= @recipe.title%>  Recipe</h1>
+    <h1 id="heading" class="display-2"><%= @recipe.title%>
+      Recipe</h1>
     <p id="notice"><%= notice %></p>
 
     <div id="recipeContainer" class="row">
@@ -81,23 +82,26 @@
       <div class="col">
         <div style="background: rgb(223,243,227);" class="py-4 px-4">
 
+          <h1 style="margin:10px;">Comments</h1>
 
-            <h1 style="margin:10px;">Comments</h1>
-            <%= render @recipe.comments%>
-            <h3 style="margin-top:40px;">
-              Add a Comment</h3>
-            <%= render partial: "comments/form", locals: {comment: @recipe.comments.new}%>
+          <%= render @recipe.comments%>
+          <h3 style="margin-top:40px;">
+            Add a Comment</h3>
+
+          <%= render partial: "comments/form", locals: {comment: @recipe.comments.new}%>
+
         </div>
       </div>
     </div>
-
-    <%= link_to 'Edit', edit_recipe_path(@recipe), :class => "btn btn-lg", id: "button" %>
+    <% if current_user == current_user&.admin%>
+      <%= link_to 'Edit', edit_recipe_path(@recipe), :class => "btn btn-lg", id: "button" %>
+    <%end%>
 
     <%= link_to 'Back', recipes_path, :class => "btn btn-lg", id: "button" %>
 
   </div>
 
-  <div id="footer" class="text-center pt-3">
+  <div id="footer2" class="text-center pt-3">
     <div >
       <small>&copy; 2021 ChowMeDown | Alannah Smith David</small>
     </div>
