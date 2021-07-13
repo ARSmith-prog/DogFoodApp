@@ -1,34 +1,90 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="
+" dir=" ltr"=" ltr""="ltr" "">
+  <head>
+    <meta charset="utf-8">
+    <title>LogIn</title>
+  </head>
+  <nav id="nav" class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
 
+      <div class="navbar-brand order-1 mr-0 ">
 
-<div style = "width:400px; height:auto">
-  <% if @dog.image.attached? %>
-  <%= image_tag(@dog.image, style: 'width:100%')%>
-  <% end %>
-</div>
+        <% if current_user %>
 
-<p>
-  <strong>name:</strong>
-  <%= @dog.title %>
-</p>
+          <%=button_to 'Logout', destroy_user_session_path, method: :delete %>
 
-<p>
-  <strong>Age:</strong>
-  <%= @dog.age %>
-</p>
+        <% else %>
 
-<p>
-  <strong>User:</strong>
-  <%= @dog.user.username%>
-</p>
+          <a type="button" class=" btn btn-outline-dark rounded-pill" href=<%=new_user_registration_path%>>Sign Up</a>
+          <a type="button" class=" btn btn-outline-dark rounded-pill" href=<%=new_user_session_path%>>Sign in</a>
 
+        <%end %>
 
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item nav-link">
+            <a class="navbar-brand" href=<%=pages_home_path%>>
+              <%= image_tag("img/logo.png", style: "border-radius: 500px; width: 80px; height: 40px;")%>
+            </a>
+          </li>
+          <li class="nav-item nav-link">
+            <a class="nav-link active" aria-current="page" href=<%=pages_home_path%>>Home</a>
+          </li>
+          <li class="nav-item nav-link">
+            <a class="nav-link" href=<%=dogs_path%>>Dogs</a>
+          </li>
 
+          <% if current_user&.admin? %>
+            <li class="nav-item nav-link">
+              <a class="nav-link" href=<%=recipes_path%>>Recipes</a>
+            </li>
+          <%end%>
 
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end of nav bar -->
 
+  <p id="notice"><%= notice %></p>
 
+  <div id="bannerp" class="text-center my-4">
 
-<% if current_user == @dog.user || current_user&.admin%>
-<%= link_to 'Edit', edit_dog_path(@dog) %>
-<% end %>
-<%= link_to 'Back', dogs_path %>
+    <div class="rounded mx-auto d-block" style="margin-top:55px; padding-top:55px; width:400px;">
+      <% if @dog.image.attached? %>
+        <%= image_tag(@dog.image, style: 'width:100%')%>
+      <% end %>
+    </div>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @dog.title %>
+    </p>
+
+    <p>
+      <strong>Age:</strong>
+      <%= @dog.age %>
+    </p>
+
+    <p>
+      <strong>Uploaded by user:</strong>
+      <%= @dog.user.username%>
+    </p>
+
+    <% if current_user == @dog.user || current_user&.admin%>
+      <%= link_to 'Edit', edit_dog_path(@dog), id:"button", class: "btn text-decoration-none " %>
+    <% end %>
+    <%= link_to 'Back', dogs_path, id: "button", class: "btn text-decoration-none " %>
+
+    <div id="footer2" class="text-center pt-3">
+      <div >
+        <small>&copy; 2021 ChowMeDown | Alannah Smith David</small>
+      </div>
+    </div>
+  </div>
+</html>

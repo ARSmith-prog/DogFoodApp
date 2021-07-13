@@ -7,7 +7,7 @@ class DogsController < ApplicationController
     @dogs = Dog.all
   end
 
-  # GET /dogs/1 or /dogs/1.json
+
   def show
   end
 
@@ -18,6 +18,7 @@ class DogsController < ApplicationController
 
   # GET /dogs/1/edit
   def edit
+
   end
 
   # POST /dogs or /dogs.json

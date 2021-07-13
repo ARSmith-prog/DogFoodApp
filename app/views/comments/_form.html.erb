@@ -1,0 +1,19 @@
+<div id="formComments" class="row gy-2 gx-3 align-items-center">
+  <div class="col-auto">
+    <%= form_for [@recipe, comment] do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="col text-center">
+    <%= f.label :content, "Comment" %>
+    <%= f.text_area :content, style: "width:250px;" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+</div>
