@@ -96,7 +96,7 @@ html {
   background: white;
   border-radius: 10px;
   width: 400px;
-  height: 350px;
+  height: 420px;
   padding: 5px;
   margin: 10px;
 
@@ -128,7 +128,7 @@ html {
 
 #footer {
   background: rgb(56, 209, 64);
-  padding:5px;
+
 }
 
 #footer2 {

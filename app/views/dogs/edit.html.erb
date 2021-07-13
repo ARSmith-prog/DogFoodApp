@@ -63,6 +63,8 @@
 
 
 <%= link_to 'Show', @dog, id: "button",  class: "btn my-4" %>
+<%= link_to 'Destroy', @dog, method: :delete, data: { confirm: 'Are you sure?' }, id: "button", class: " btn " %>
+</br>
 <%= link_to 'Back', dogs_path, id: "button",  class: "btn my-4" %>
 
 </div>
