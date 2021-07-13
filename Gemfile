@@ -15,7 +15,6 @@ gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 
-gem 'active_model_serializers', '~> 0.10.12'
 
 gem 'thor', '~> 0.20.3'
 # Use SCSS for stylesheets
@@ -62,6 +61,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rspec-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
