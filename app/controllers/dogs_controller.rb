@@ -7,26 +7,24 @@ class DogsController < ApplicationController
     @dogs = Dog.all
   end
 
-
   def show
     # @user = User.find_by_id(@dog.user_id)
     # @previous_dog = @dog.previous
     # @next_dog = @dog.next
 
     @current_dog = Dog.find(params[:id])
-@prev = @current_dog.previous
-@next = @current_dog.next
+    @prev = @current_dog.previous
+    @next = @current_dog.next
 
-respond_to do |format|
-  format.html
-end
+    respond_to do |format|
+      format.html
+    end
   end
 
   # GET /dogs/new
   def new
     @dog = Dog.new
   end
-
 
   # GET /dogs/1/edit
   def edit
@@ -72,13 +70,14 @@ end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_dog
-      @dog = Dog.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def dog_params
-      params.require(:dog).permit(:title, :age, :image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_dog
+    @dog = Dog.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def dog_params
+    params.require(:dog).permit(:title, :age, :image)
+  end
 end

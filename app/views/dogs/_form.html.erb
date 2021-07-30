@@ -1,52 +1,52 @@
-<div id = "banner" >
+<div id="banner">
 
-  <div id = "form" class="row gy-2 gx-3 align-items-center">
+  <div id="form" class="row gy-2 gx-3 align-items-center">
     <div class="col-auto">
 
-<%= form_with(model: dog) do |form| %>
-  <% if dog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
+      <%= form_with(model: dog) do |form| %>
+        <% if dog.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
 
-      <ul>
-        <% dog.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+            <ul>
+              <% dog.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 
-  <div class="field">
+        <div class="field">
 
-    <%= form.label :title %>
-    <%= form.text_field :title%>
-  </div>
-  </div>
+          <%= form.label :title %>
+          <%= form.text_field :title %>
+        </div>
+        </div>
 
-  <div class="field">
+        <div class="field">
 
-    <div class="col-auto">
-    <%= form.label :age %>
-    <%= form.number_field :age %>
-  </div>
-  </div>
+          <div class="col-auto">
+            <%= form.label :age %>
+            <%= form.number_field :age %>
+          </div>
+        </div>
 
-  <div class="field">
-  <div class="col-auto">
+        <div class="field">
+          <div class="col-auto">
 
-    <% if dog.image.attached? %>
-      <%= image_tag dog.image, style: "width: 375px; height: 400px;"%>
-    <%end %>
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
-  </div>
+            <% if dog.image.attached? %>
+              <%= image_tag dog.image, style: "width: 375px; height: 400px;" %>
+            <% end %>
+            <%= form.label :image %>
+            <%= form.file_field :image %>
+          </div>
+        </div>
 
-  <div class="actions">
-    <%= form.submit%>
-  </div>
-<% end %>
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end %>
 
-  </div>
+      </div>
 </div>
