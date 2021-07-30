@@ -16,7 +16,7 @@ html {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-stroke: 1px blue;
-  color: transparent
+  color: transparent;
 }
 
 .nav-link {
@@ -99,10 +99,7 @@ html {
   height: 420px;
   padding: 5px;
   margin: 10px;
-
-
 }
-
 
 /* #sidebyside {
   display: inline-block;
@@ -128,7 +125,6 @@ html {
 
 #footer {
   background: rgb(56, 209, 64);
-
 }
 
 #footer2 {

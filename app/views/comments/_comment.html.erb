@@ -1,7 +1,7 @@
 <div>
   <strong><%= comment.name %> says:</strong>
-  <%=comment.content %>
-    <div class="comment-admin">
-    <%= link_to "Edit", edit_recipe_comment_path(@recipe, comment)%>
-    </div>
+  <%= comment.content %>
+  <div class="comment-admin">
+    <%= link_to "Edit", edit_recipe_comment_path(@recipe, comment) %>
+  </div>
 </div>
