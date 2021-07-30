@@ -88,7 +88,8 @@ rails s
 When the server is running, try to access http://localhost:3000, and it should work in many cases!
 
 How the project should look:
+
+![cmd2](https://user-images.githubusercontent.com/55244590/127715258-dc346296-bfd8-46c6-bcb4-1a337c3f0a4d.png)
 ![cmd6](https://user-images.githubusercontent.com/55244590/127715267-bdf550ca-fe3c-43be-b43b-d6c4054443c1.jpg)
 ![cmd3](https://user-images.githubusercontent.com/55244590/127715273-410ec7d3-6d39-4e2c-899a-e61e34da4e47.png)
 ![cmd7](https://user-images.githubusercontent.com/55244590/127715277-d8851561-4d2f-44e6-8be0-aaa9208473da.png)
-![cmd2](https://user-images.githubusercontent.com/55244590/127715258-dc346296-bfd8-46c6-bcb4-1a337c3f0a4d.png)
