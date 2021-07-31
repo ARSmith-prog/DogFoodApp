@@ -42,11 +42,13 @@ To check if Homebrew is installed, run:
 ```bash
 brew --version
 ```
-Install rbenv 
+
+Install rbenv
 
 ```bash
 brew install rbenv
 ```
+
 Install Ruby
 
 ```bash
@@ -59,7 +61,7 @@ If you do not already have bundler, install it
 gem install bundler
 ```
 
-run bundle install 
+run bundle install
 
 ```bash
 bundle install
@@ -85,7 +87,7 @@ or
 rails s
 ```
 
-When the server is running, try to access http://localhost:3000, and it should work in many cases!
+When the server is running, try to access <http://localhost:3000>, and it should work in many cases!
 
 How the project should look:
 
