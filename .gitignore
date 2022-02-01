@@ -9,6 +9,8 @@
 .eslintcache
 package.json
 
+vendor/bundle
+
 # Ignore bundler config.
 /.bundle
 
